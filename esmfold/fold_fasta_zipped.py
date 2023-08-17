@@ -1,14 +1,15 @@
 import os
+from pathlib import Path
 
 import bioml_tasks
 
 # Get the directory of the script
-script_dir = os.path.dirname(os.path.abspath(__file__))
+script_dir = Path(__file__).parent
 
 # Construct the full path to the file
-filename = os.path.join(script_dir, "data/example.fasta")
+filename = Path(script_dir / "data/example.fasta")
 
-output_path = os.path.join(script_dir, "output/example.zip")
+output_path = Path(script_dir / "output/example.zip")
 
 with open(filename, "rb") as f:
     res = bioml_tasks.run(
